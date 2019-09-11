@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.tidus.ristrat.weight.MyRecyclerViewItem xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    app:move_range="20"
+    app:right_width="200">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!--内容区域放置布局-->
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50">
+
+                <TextView
+                    android:id="@+id/tv_system_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_7"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="系统消息"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_10"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_dian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/red_dian"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_system_message"
+                    app:layout_constraintLeft_toRightOf="@id/tv_system_message"
+                    app:layout_constraintTop_toTopOf="@id/tv_system_message" />
+
+                <TextView
+                    android:id="@+id/tv_message_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/sp_7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/tv_system_message"
+                    app:layout_constraintTop_toBottomOf="@id/tv_system_message" />
+
+                <TextView
+                    android:id="@+id/tv_message_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="2019-09-08 00:00:00"
+                    android:textColor="@color/gray_text"
+                    android:textSize="@dimen/sp_7"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_system_message"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_system_message" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <!--内容区域放置布局结束-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rightLayout"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@id/content_layout"
+            android:layout_alignBottom="@id/content_layout"
+            android:layout_toRightOf="@id/content_layout"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <!--自定义侧边菜单布局-->
+
+            <TextView
+                android:id="@+id/click"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="#ffffff"
+                android:textSize="26sp" />
+
+
+            <!--自定义侧边菜单布局结束-->
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</com.example.tidus.ristrat.weight.MyRecyclerViewItem>

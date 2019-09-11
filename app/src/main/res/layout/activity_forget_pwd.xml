@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="@dimen/dp_47"
+        android:layout_height="@dimen/dp_47"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_52"
+        android:src="@drawable/jiqiren" />
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:id="@+id/lll"
+            android:layout_width="@dimen/dp_260"
+            android:layout_height="@dimen/dp_180"
+            android:background="@drawable/back_bg"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center"
+                android:text="找回密码"
+                android:textColor="#000000"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="手机号"
+                android:textColor="#000000"
+                android:textSize="@dimen/sp_12" />
+
+            <EditText
+                android:id="@+id/ed_photo"
+                android:layout_width="@dimen/dp_199"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="请输入您的手机号"
+                android:maxLines="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_5"
+                android:maxLines="1"
+                android:text="验证码"
+                android:textColor="#000000"
+                android:textSize="@dimen/sp_12" />
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp_199"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ed_username"
+
+                android:layout_gravity="center">
+
+                <EditText
+                    android:id="@+id/ed_code"
+                    android:layout_width="@dimen/dp_199"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入您的验证码"
+                    android:inputType="numberPassword" />
+
+                <Button
+                    android:id="@+id/btn_send_code"
+                    android:layout_width="@dimen/dp_44"
+                    android:layout_height="@dimen/dp_14"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/login_bg"
+                    android:gravity="center"
+                    android:text="发送验证码"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_8" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_sure"
+                android:layout_width="@dimen/dp_137"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ed_password"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@drawable/login_bg"
+                android:paddingLeft="@dimen/dp_20"
+                android:paddingRight="@dimen/dp_20"
+                android:text="确认"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <include
+        layout="@layout/gray_title_layout"
+        android:layout_above="@id/rl"
+        android:layout_alignParentTop="true" />
+</RelativeLayout>

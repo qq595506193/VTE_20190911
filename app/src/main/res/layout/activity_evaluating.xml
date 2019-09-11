@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ctl_select_question"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_280"
+        android:background="@drawable/activity_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <CheckBox
+            android:id="@+id/ck_all_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/view_line_01"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_serial"
+            app:layout_constraintTop_toBottomOf="@id/tv_shezhi_time" />
+
+        <TextView
+            android:id="@+id/tv_serial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="床号："
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toTopOf="@id/view_line_01"
+            app:layout_constraintLeft_toRightOf="@id/ck_all_selected"
+            app:layout_constraintRight_toLeftOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_shezhi_time" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="姓名："
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+            app:layout_constraintLeft_toRightOf="@id/tv_serial"
+            app:layout_constraintRight_toLeftOf="@id/tv_questionnaire"
+            app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+        <TextView
+            android:id="@+id/tv_questionnaire"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="问卷："
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+            app:layout_constraintLeft_toRightOf="@id/tv_name"
+            app:layout_constraintRight_toLeftOf="@id/tv_explain"
+            app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+        <TextView
+            android:id="@+id/tv_explain"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="说明："
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+            app:layout_constraintLeft_toRightOf="@id/tv_questionnaire"
+            app:layout_constraintRight_toLeftOf="@id/tv_caozuo"
+            app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+        <TextView
+            android:id="@+id/tv_caozuo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_5"
+            android:text="操作："
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+            app:layout_constraintLeft_toRightOf="@id/tv_explain"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+        <TextView
+            android:id="@+id/tv_wait_time"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_5"
+            android:visibility="invisible"
+            app:layout_constraintRight_toLeftOf="@id/tv_shaohou"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/sp_wait_time"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_5"
+            android:background="@drawable/edit_bg"
+            android:dropDownWidth="@dimen/dp_50"
+            android:entries="@array/wait_time"
+            android:gravity="center"
+            android:spinnerMode="dialog"
+            app:layout_constraintRight_toLeftOf="@id/tv_shaohou"
+            app:layout_constraintTop_toTopOf="parent"
+            app:theme="@style/myDropTheme" />
+
+        <TextView
+            android:id="@+id/tv_shaohou"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_15"
+            android:layout_margin="@dimen/dp_10"
+            android:background="@drawable/btn_sure"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
+            android:text="确认"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_8"
+            app:layout_constraintBottom_toBottomOf="@id/sp_wait_time"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_shezhi_time"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_5"
+            android:gravity="center"
+            android:text="提醒设置："
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/sp_wait_time"
+            app:layout_constraintRight_toLeftOf="@id/sp_wait_time"
+            app:layout_constraintTop_toTopOf="@id/sp_wait_time" />
+
+        <View
+            android:id="@+id/view_line_01"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/dp_5"
+            android:background="#eeeeee"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_serial" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_evaluating"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/activity_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_line_01" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

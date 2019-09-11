@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_pingguyewu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:background="@drawable/edit_bg_title"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="评估业务"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_yewuleixing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:background="@drawable/edit_bg_title"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="业务类型"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_shixian"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:background="@drawable/edit_bg_title"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="时限"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_caozuo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:background="@drawable/edit_bg_title"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="操作"
+        android:textColor="@color/black" />
+
+</LinearLayout>

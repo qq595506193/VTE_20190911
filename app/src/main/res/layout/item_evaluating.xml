@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <CheckBox
+        android:id="@+id/ck_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_serial"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_serial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="01"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/ck_selected"
+        app:layout_constraintRight_toLeftOf="@id/tv_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="潘金莲"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_6"
+        app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+        app:layout_constraintLeft_toRightOf="@id/tv_serial"
+        app:layout_constraintRight_toLeftOf="@id/tv_questionnaire"
+        app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+    <TextView
+        android:id="@+id/tv_questionnaire"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="表1"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+        app:layout_constraintLeft_toRightOf="@id/tv_name"
+        app:layout_constraintRight_toLeftOf="@id/tv_explain"
+        app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+
+    <TextView
+        android:id="@+id/tv_explain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="上次评估未完成"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_6"
+        app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+        app:layout_constraintLeft_toRightOf="@id/tv_questionnaire"
+        app:layout_constraintRight_toLeftOf="@id/btn_anew_assess"
+        app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+
+    <TextView
+        android:id="@+id/btn_termination_assess"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_3"
+        android:background="@drawable/btn_termination"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_5"
+        android:paddingRight="@dimen/dp_5"
+        android:text="终止评估"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_6"
+        app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+        app:layout_constraintLeft_toRightOf="@id/btn_anew_assess"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+    <TextView
+        android:id="@+id/btn_anew_assess"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_3"
+        android:background="@drawable/btn_sure"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_5"
+        android:paddingRight="@dimen/dp_5"
+        android:text="继续评估"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_6"
+        app:layout_constraintBottom_toBottomOf="@id/tv_serial"
+        app:layout_constraintLeft_toRightOf="@id/tv_explain"
+        app:layout_constraintRight_toLeftOf="@id/btn_termination_assess"
+        app:layout_constraintTop_toTopOf="@id/tv_serial" />
+
+    <View
+        android:id="@+id/view_line_01"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="#eeeeee"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_serial" />
+
+</android.support.constraint.ConstraintLayout>

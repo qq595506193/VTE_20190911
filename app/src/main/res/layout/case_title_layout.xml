@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/title_root"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40"
+    android:background="#3b4046"
+    android:gravity="center_vertical"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/dp_10"
+        android:src="@mipmap/tuichu2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+
+        android:id="@+id/iv_message"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/dp_12"
+        android:padding="@dimen/dp_1"
+        android:src="@mipmap/xiaoxi2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/iv_close"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_login_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/dp_12"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/iv_message"
+        app:layout_constraintTop_toTopOf="parent" />
+    ;
+
+    <ImageView
+        android:id="@+id/iv_login_icon"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/dp_3"
+        android:src="@mipmap/yisheng"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_login_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="患者管理"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

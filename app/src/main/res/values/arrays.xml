@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sex">
+        <item>全部</item>
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <string-array name="danger_level">
+        <item>全部</item>
+        <item>低危</item>
+        <item>中危</item>
+        <item>高危</item>
+        <item>极高危</item>
+        <item>确诊</item>
+    </string-array>
+
+    <string-array name="yuanyin">
+        <item>其他</item>
+        <item>不想了</item>
+        <item>没病</item>
+    </string-array>
+
+    <string-array name="wait_assess">
+        <item>全部</item>
+        <item>全部</item>
+        <item>全部</item>
+    </string-array>
+
+    <string-array name="wait_time">
+        <item>15分钟</item>
+        <item>30分钟</item>
+        <item>1小时</item>
+        <item>3小时</item>
+        <item>6小时</item>
+        <item>12小时</item>
+        <item>24小时</item>
+        <item>48小时</item>
+    </string-array>
+</resources>

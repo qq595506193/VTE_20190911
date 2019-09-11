@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_130"
+    android:layout_margin="@dimen/dp_5"
+    android:background="@color/white"
+    app:cardBackgroundColor="#ffffff"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cly_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_2"
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_2"
+            android:src="@mipmap/nan"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_icon_name"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_3"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="孙俪"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_9"
+            app:layout_constraintLeft_toLeftOf="@id/iv_icon"
+            app:layout_constraintRight_toRightOf="@id/iv_icon"
+            app:layout_constraintTop_toBottomOf="@id/iv_icon" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:gravity="center"
+            android:text="57岁"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/sp_8"
+            app:layout_constraintLeft_toLeftOf="@id/iv_icon"
+            app:layout_constraintRight_toRightOf="@id/iv_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_icon_name" />
+
+        <TextView
+            android:id="@+id/tv_bed_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_5"
+            android:gravity="center"
+            android:text="01床"
+            android:textColor="#5b90bc"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toTopOf="@id/cl_bottom"
+            app:layout_constraintLeft_toLeftOf="@id/tv_age"
+            app:layout_constraintRight_toRightOf="@id/tv_age"
+            app:layout_constraintTop_toBottomOf="@id/tv_age" />
+
+        <TextView
+            android:id="@+id/tv_accommodation_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:maxLines="1"
+            android:text="M10000000000"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/sp_8"
+            app:layout_constraintLeft_toRightOf="@id/iv_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_icon" />
+
+        <TextView
+            android:id="@+id/tv_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_3"
+            android:gravity="start"
+            android:text="科室"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/sp_8"
+            app:layout_constraintLeft_toLeftOf="@id/tv_accommodation_id"
+            app:layout_constraintLeft_toRightOf="@id/iv_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_accommodation_id" />
+
+        <TextView
+            android:id="@+id/tv_danyuan"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_3"
+            android:layout_marginRight="@dimen/dp_5"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="6单元"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/sp_8"
+            app:layout_constraintLeft_toLeftOf="@id/tv_section"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_section" />
+
+        <TextView
+            android:id="@+id/tv_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_3"
+            android:text="主管医生:"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/sp_8"
+            app:layout_constraintLeft_toLeftOf="@id/tv_section"
+            app:layout_constraintRight_toLeftOf="@id/tv_doctor_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_danyuan" />
+
+        <TextView
+            android:id="@+id/tv_doctor_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_3"
+            android:layout_marginRight="@dimen/dp_5"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="王王医生"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_8"
+            app:layout_constraintBottom_toBottomOf="@id/tv_doctor"
+            app:layout_constraintLeft_toRightOf="@id/tv_doctor"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_doctor" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:lines="2"
+            android:maxEms="6"
+            android:maxLines="2"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/sp_6"
+            app:layout_constraintBottom_toTopOf="@id/cl_bottom"
+            app:layout_constraintLeft_toLeftOf="@id/tv_section"
+            app:layout_constraintRight_toRightOf="@id/tv_doctor_name"
+            app:layout_constraintTop_toTopOf="@id/tv_age" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#ededed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_bed_id">
+
+
+            <ImageView
+                android:id="@+id/iv_ping"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_2"
+                android:background="@mipmap/ping_02"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/rv_icon"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/iv_ping"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

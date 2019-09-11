@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_root"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#7a77d4"
+    android:paddingTop="10dp"
+    android:gravity="center_vertical">
+    <ImageView
+        android:id="@+id/title_back"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_width="@dimen/dp_18"
+        android:layout_height="@dimen/dp_18"
+        android:gravity="center_vertical"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp"
+        android:layout_centerInParent="true"
+        android:paddingTop="5dp"
+        android:src="@drawable/icon_back"
+        android:singleLine="true"
+        android:textColor="#136dd7"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/title_left_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12321312"
+        android:textSize="@dimen/sp_10"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:textColor="#ffffff"
+        android:layout_toRightOf="@id/title_back"/>
+
+    <ImageView
+        android:id="@+id/btn_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:padding="12dp"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginRight="65dp">
+
+        <TextView
+            android:id="@+id/title_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:singleLine="true"
+            android:text="VTE风险评估"
+            android:textSize="@dimen/sp_10" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="60dp"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/edit_search_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="6dp"
+            android:ellipsize="end"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textSize="14sp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/title_right"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/title_right2"
+            android:layout_marginRight="1dp"
+            android:background="@null"
+            android:paddingLeft="3dp"
+            android:paddingRight="2dp"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/title_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/main_listmenuD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/main_listmenuP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_care"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</RelativeLayout>

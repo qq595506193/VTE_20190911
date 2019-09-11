@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.tidus.ristrat">
+    <!-- 允许应用程序改变网络状态 -->
+    <application
+        android:name=".application.App"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:icon">
+        <activity android:name=".activity.MessageItemActivity" />
+        <activity android:name=".activity.RiskAssessmentActivity" />
+        <activity android:name=".activity.NowSelectTablesActivity" />
+        <activity android:name=".activity.SelectedTablesActivity" />
+
+        <activity android:name=".activity.HistoryAssessActivity" />
+
+        <activity
+            android:name=".activity.EvaluatingActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/TransparentTheme" />
+        <activity
+            android:name=".activity.LogActivity"
+            android:theme="@style/TransparentTheme" />
+        <activity
+            android:name=".activity.CancelQuestionActivity"
+            android:theme="@style/TransparentTheme" />
+        <activity android:name=".activity.MessageActivity" />
+        <activity android:name=".activity.CaseControlActivity" />
+        <activity
+            android:name=".activity.UserLoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustResize|adjustUnspecified|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.RiskActivity" />
+        <activity android:name=".activity.ReportActivity" />
+        <activity
+            android:name=".activity.ForgetPwdActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <service android:name=".service.MessageService" />
+    </application> <!-- 允许应用程序改变WIFI连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 允许应用程序访问有关的网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许应用程序访问WIFI网卡的网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许应用程序完全使用网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+</manifest>

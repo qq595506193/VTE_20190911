@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e3e8ef"
+    android:orientation="vertical"
+    tools:context=".activity.ReportActivity">
+
+    <include layout="@layout/gray_title_layout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="#dfdcdc"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评估分数："
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            android:id="@+id/txt_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12321321312"
+            android:textSize="@dimen/sp_12" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风险因素："
+                android:textSize="@dimen/sp_9" />
+
+            <TextView
+                android:id="@+id/txt_fenxian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_33"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:text="风险等级："
+                android:textSize="@dimen/sp_9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DVT发生率："
+                android:textSize="@dimen/sp_9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="left"
+                android:text="推荐预防方案："
+                android:textSize="@dimen/sp_9" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:orientation="vertical">
+
+            <com.example.tidus.ristrat.weight.MaxHeightRecyclerView
+                android:id="@+id/rl_factor"
+                android:layout_width="@dimen/dp_150"
+                app:maxHeight="@dimen/dp_46"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_rank"
+                android:layout_width="@dimen/dp_150"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_height="@dimen/dp_12"
+                android:gravity="center_vertical"
+                android:background="#f4f4f4"
+                android:textColor="#bfbfbf"
+                android:textSize="@dimen/sp_9" />
+
+            <TextView
+                android:id="@+id/txt_dvt"
+                android:textColor="#bfbfbf"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_12"
+                android:gravity="center_vertical"
+                android:background="#f4f4f4"
+                android:textSize="@dimen/sp_9" />
+
+            <TextView
+                android:id="@+id/txt_plan"
+                android:textColor="#bfbfbf"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:background="#f4f4f4"
+                android:textSize="@dimen/sp_9" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_overwrite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重做"
+            android:textColor="#ffffff"
+            android:layout_marginRight="@dimen/dp_12"
+            android:background="@drawable/search_bg"
+            android:textSize="@dimen/sp_8" />
+
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提交"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:background="@drawable/senior_bg"
+            android:textSize="@dimen/sp_8" />
+    </LinearLayout>
+</LinearLayout>
