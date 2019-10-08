@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -169,7 +168,7 @@ public class RiskAssessFragment extends BaseMvpFragment<IRiskAssessmentContart.I
     private void initPresenterSave(int form_id) {
         CommitDataBean commitDataBean = new CommitDataBean();
         JSONStringer jsonStringer = new JSONStringer();
-        EditText shuru_value;
+        //EditText shuru_value;
         HashMap<String, Object> params = new HashMap<>();
         params.put("Type", "saveReportCommit");
         if (serverParamsBean != null) {
@@ -188,37 +187,23 @@ public class RiskAssessFragment extends BaseMvpFragment<IRiskAssessmentContart.I
             jsonStringer.array();
             for (RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean.SublistBean sublistBean : sublistBeans_checked) {
                 if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
-                    // 获取输入框的值
-                    shuru_value = (EditText) sublistBean.getShuruValue();
-                    String shuru_content = shuru_value.getText().toString().trim();
-                    if (shuru_content.equals("")) {
-                        ToastUtils.show("请输入内容");
+                    String shuruValue = sublistBean.getShuruValue();
+                    if (shuruValue.equals("")) {
+                        ToastUtils.show("请输入危险因素内容");
                         return;
                     }
-                    if (sublistBean.getANALYSIS_SOURCE_STR() != null) {
-                        jsonStringer.object()
-                                .key("CURRENT_OPTION_ID")
-                                .value("")
-                                .key("CURRENT_VALUE")
-                                .value("")
-                                .key("RISK_FACTOR_ID")
-                                .value(sublistBean.getRISK_FACTOR_ID())
-                                .key("CURRENT_DESC")
-                                .value(shuru_content)
-                                .key("ANALYSIS_SOURCE_STR")
-                                .value(sublistBean.getANALYSIS_SOURCE_STR()).endObject();
-                    } else {
-                        jsonStringer.object()
-                                .key("CURRENT_OPTION_ID")
-                                .value("")
-                                .key("CURRENT_VALUE")
-                                .value("")
-                                .key("RISK_FACTOR_ID")
-                                .value(sublistBean.getRISK_FACTOR_ID())
-                                .key("CURRENT_DESC")
-                                .value(shuru_content)
-                                .key("ANALYSIS_SOURCE_STR").value("").endObject();
-                    }
+                    jsonStringer.object().key("CURRENT_OPTION_ID")
+                            .value("")
+                            .key("CURRENT_VALUE")
+                            .value("")
+                            .key("RISK_FACTOR_ID")
+                            .value(sublistBean.getRISK_FACTOR_ID())
+                            .key("CURRENT_DESC")
+                            .value(shuruValue)
+                            .key("ANALYSIS_SOURCE_STR")
+                            .value(sublistBean.getANALYSIS_SOURCE_STR() + "；" + loginBean.getServer_params().getUSER_NAME() + currentDatetime + "确认").endObject();
+
+//
                 } else {
                     if (sublistBean.getANALYSIS_SOURCE_STR() != null) {
                         jsonStringer.object().key("CURRENT_OPTION_ID").value("").key("CURRENT_VALUE").value("").key("RISK_FACTOR_ID").value(sublistBean.getRISK_FACTOR_ID()).key("ANALYSIS_SOURCE_STR").value(sublistBean.getANALYSIS_SOURCE_STR()).endObject();
@@ -250,6 +235,7 @@ public class RiskAssessFragment extends BaseMvpFragment<IRiskAssessmentContart.I
         presenter.getSave(params);
     }
 
+    private String shuruValueStr;
 
     /**
      * 提交
@@ -276,41 +262,27 @@ public class RiskAssessFragment extends BaseMvpFragment<IRiskAssessmentContart.I
 
         params.put("INTEGRAL", gross_score);// 分数
         try {
-            EditText shuru_value;
+            //EditText shuru_value;
             String currentDatetime = DateUtil.currentDatetime();// 获取系统当前时间
             jsonStringer.array();
             for (RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean.SublistBean sublistBean : sublistBeans_checked) {
                 if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
-                    // 获取输入框的值
-                    shuru_value = (EditText) sublistBean.getShuruValue();
-                    String shuru_content = shuru_value.getText().toString().trim();
-                    if (shuru_content.equals("")) {
-                        ToastUtils.show("请输入内容");
+                    String shuruValue = sublistBean.getShuruValue();
+                    if (shuruValue.equals("")) {
+                        ToastUtils.show("请输入危险因素内容");
                         return;
                     }
-                    if (sublistBean.getANALYSIS_SOURCE_STR() == null || sublistBean.getANALYSIS_SOURCE_STR().equals("")) {
-                        jsonStringer.object().key("CURRENT_OPTION_ID")
-                                .value("")
-                                .key("CURRENT_VALUE")
-                                .value("")
-                                .key("RISK_FACTOR_ID")
-                                .value(sublistBean.getRISK_FACTOR_ID())
-                                .key("CURRENT_DESC")
-                                .value(shuru_content)
-                                .key("ANALYSIS_SOURCE_STR")
-                                .value(loginBean.getServer_params().getUSER_NAME() + currentDatetime + "确认").endObject();
-                    } else {
-                        jsonStringer.object().key("CURRENT_OPTION_ID")
-                                .value("")
-                                .key("CURRENT_VALUE")
-                                .value("")
-                                .key("RISK_FACTOR_ID")
-                                .value(sublistBean.getRISK_FACTOR_ID())
-                                .key("CURRENT_DESC")
-                                .value(shuru_content)
-                                .key("ANALYSIS_SOURCE_STR")
-                                .value(sublistBean.getANALYSIS_SOURCE_STR() + "；" + loginBean.getServer_params().getUSER_NAME() + currentDatetime + "确认").endObject();
-                    }
+                    jsonStringer.object().key("CURRENT_OPTION_ID")
+                            .value("")
+                            .key("CURRENT_VALUE")
+                            .value("")
+                            .key("RISK_FACTOR_ID")
+                            .value(sublistBean.getRISK_FACTOR_ID())
+                            .key("CURRENT_DESC")
+                            .value(shuruValue)
+                            .key("ANALYSIS_SOURCE_STR")
+                            .value(sublistBean.getANALYSIS_SOURCE_STR() + "；" + loginBean.getServer_params().getUSER_NAME() + currentDatetime + "确认").endObject();
+
                 } else {
                     if (sublistBean.getANALYSIS_SOURCE_STR() == null || sublistBean.getANALYSIS_SOURCE_STR().equals("")) {
                         jsonStringer.object().key("CURRENT_OPTION_ID")

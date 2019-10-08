@@ -63,6 +63,7 @@ public class NowSelectTablesActivity extends BaseMvpActivity<INowSelectTablesCon
     // 切换页签
     @BindView(R.id.fragment_container)
     FrameLayout fragment_container;
+
     // 立即评估按钮
     @BindView(R.id.btn_start_assess)
     Button btn_start_assess;

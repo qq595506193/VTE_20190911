@@ -3,6 +3,8 @@ package com.example.tidus.ristrat.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -90,17 +92,41 @@ public class RiskItemCheckboxAdapter extends RecyclerView.Adapter<RiskItemCheckb
                     setGradeListener.onGradeListener(true, sublistBean);
                     if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
                         holder.et_shuru.setVisibility(View.VISIBLE);
-                        sublistBean.setShuruValue(holder.et_shuru);
+                        //sublistBean.setShuruValue(holder.et_shuru);
+                        String shuruValue = holder.et_shuru.getText().toString().trim();
+                        sublistBean.setShuruValue(shuruValue);
                     }
                 } else {
                     sublistBean.setChecked(false);
                     setGradeListener.onGradeListener(false, sublistBean);
                     if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
                         holder.et_shuru.setVisibility(View.INVISIBLE);
+                        //sublistBean.setShuruValue(holder.et_shuru);
+                        holder.et_shuru.setText("");
+                        sublistBean.setShuruValue("");
                     }
                 }
             }
         });
+
+        holder.et_shuru.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                sublistBean.setShuruValue(holder.et_shuru.getText().toString().trim());
+            }
+        });
+
+
 //        holder.ck_checked.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -194,6 +220,5 @@ public class RiskItemCheckboxAdapter extends RecyclerView.Adapter<RiskItemCheckb
     public void setSetGradeListener(SetGradeListener setGradeListener) {
         this.setGradeListener = setGradeListener;
     }
-
 
 }

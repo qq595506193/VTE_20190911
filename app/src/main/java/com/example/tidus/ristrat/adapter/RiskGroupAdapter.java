@@ -76,7 +76,6 @@ public class RiskGroupAdapter extends RecyclerView.Adapter<RiskGroupAdapter.View
         });
         // 提交后置空
         riskItemCheckboxAdapter.setCommit(isCommit);
-
     }
 
     @Override
@@ -106,4 +105,6 @@ public class RiskGroupAdapter extends RecyclerView.Adapter<RiskGroupAdapter.View
     public void setSetGroupGradeListener(SetGroupGradeListener setGroupGradeListener) {
         this.setGroupGradeListener = setGroupGradeListener;
     }
+
+
 }
