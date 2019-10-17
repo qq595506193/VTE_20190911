@@ -456,13 +456,24 @@ public class RiskAssessFragment extends BaseMvpFragment<IRiskAssessmentContart.I
         for (RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean xuanxiangBean : wenjuannameBean.getXUANXIANG()) {
             if (xuanxiangBean.getGROUP_TAB_ID() == GROUP_TAB_ID) {
                 wenjuan = xuanxiangBean.getWENJUAN();
-                riskGroupAdapter.setWenjuanBeans(wenjuan);
+                riskGroupAdapter.setWenjuanBeans(wenjuan, GROUP_TAB_ID);
             }
             if (xuanxiangBean.getGROUP_TAB_ID() == 3) {
                 wenjuan1 = xuanxiangBean.getWENJUAN();
-                riskGroupAdapter.setWenjuanBeans(wenjuan1);
+                riskGroupAdapter.setWenjuanBeans(wenjuan1, GROUP_TAB_ID);
             }
         }
+
+        // 同步选中的数据
+        riskGroupAdapter.setSetGroupValueUpdate(new RiskGroupAdapter.SetGroupValueUpdate() {
+            @Override
+            public void onSetGroupValueUpdate(List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean> wenjuanBeans) {
+                for (RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean xuanxiangBean : wenjuannameBean.getXUANXIANG()) {
+                    List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean> wenjuan = xuanxiangBean.getWENJUAN();
+                    wenjuan = wenjuanBeans;
+                }
+            }
+        });
         // 分组切换
         rg_select.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -478,7 +489,7 @@ public class RiskAssessFragment extends BaseMvpFragment<IRiskAssessmentContart.I
                         GROUP_TAB_ID = 1;
                         for (RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean xuanxiangBean : wenjuannameBean.getXUANXIANG()) {
                             if (xuanxiangBean.getGROUP_TAB_ID() == GROUP_TAB_ID) {
-                                riskGroupAdapter.setWenjuanBeans(xuanxiangBean.getWENJUAN());
+                                riskGroupAdapter.setWenjuanBeans(xuanxiangBean.getWENJUAN(), GROUP_TAB_ID);
 
                             }
                         }
@@ -498,7 +509,7 @@ public class RiskAssessFragment extends BaseMvpFragment<IRiskAssessmentContart.I
                         GROUP_TAB_ID = 2;
                         for (RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean xuanxiangBean : wenjuannameBean.getXUANXIANG()) {
                             if (xuanxiangBean.getGROUP_TAB_ID() == GROUP_TAB_ID) {
-                                riskGroupAdapter.setWenjuanBeans(xuanxiangBean.getWENJUAN());
+                                riskGroupAdapter.setWenjuanBeans(xuanxiangBean.getWENJUAN(), GROUP_TAB_ID);
                             }
                         }
 //                        for (RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean xuanxiangBean : wenjuannameBean.getXUANXIANG()) {

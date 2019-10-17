@@ -293,6 +293,15 @@ public class SelectedTablesBean implements Serializable {
                 private int FORM_SEQ;
                 private String BUSINESS_CLASS;
                 private List<?> sublist;
+                private boolean isSelected;
+
+                public boolean isSelected() {
+                    return isSelected;
+                }
+
+                public void setSelected(boolean selected) {
+                    isSelected = selected;
+                }
 
                 public int getMERCHANT_ID() {
                     return MERCHANT_ID;

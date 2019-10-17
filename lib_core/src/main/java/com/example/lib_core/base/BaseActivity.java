@@ -45,18 +45,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         immersiveStatusBar();
     }
 
-
-    protected abstract void initData();
-
-    protected abstract void initView(Intent intent);
-
-
     /**
      * 绑定根布局id
      *
      * @return
      */
     protected abstract int bindLayoutId();
+
+
+    protected abstract void initData();
+
+    protected abstract void initView(Intent intent);
+
+
+
 
     /**
      * 显示toast

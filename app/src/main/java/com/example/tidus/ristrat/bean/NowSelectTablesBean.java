@@ -272,6 +272,15 @@ public class NowSelectTablesBean implements Serializable {
                 private int FORM_TYPE;
                 private int FORM_SEQ;
                 private String BUSINESS_CLASS;
+                private boolean isSelect;
+
+                public boolean isSelect() {
+                    return isSelect;
+                }
+
+                public void setSelect(boolean select) {
+                    isSelect = select;
+                }
 
                 public int getMERCHANT_ID() {
                     return MERCHANT_ID;

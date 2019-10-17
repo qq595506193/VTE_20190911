@@ -21,7 +21,9 @@ import java.util.List;
  */
 public class RiskGroupAdapter extends RecyclerView.Adapter<RiskGroupAdapter.ViewHolder> {
     private Context context;
+
     private List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean> wenjuanBeans;
+    private int GroupId;
     private List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean.SublistBean> sublistBeans_checked;
     private RiskItemCheckboxAdapter riskItemCheckboxAdapter;
     private boolean isCommit = false;
@@ -30,9 +32,10 @@ public class RiskGroupAdapter extends RecyclerView.Adapter<RiskGroupAdapter.View
         this.context = context;
     }
 
-    public void setWenjuanBeans(List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean> wenjuanBeans) {
+    public void setWenjuanBeans(List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean> wenjuanBeans, int GROUP_TAB_ID) {
         if (wenjuanBeans != null) {
             this.wenjuanBeans = wenjuanBeans;
+            this.GroupId = GROUP_TAB_ID;
         }
         notifyDataSetChanged();
     }
@@ -58,7 +61,7 @@ public class RiskGroupAdapter extends RecyclerView.Adapter<RiskGroupAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull RiskGroupAdapter.ViewHolder holder, int position) {
-        RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean wenjuanBean = wenjuanBeans.get(position);
+        final RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean wenjuanBean = wenjuanBeans.get(position);
         holder.tv_xiaobiao_name.setText(wenjuanBean.getFACTOR_GROUP_NAME());
         // 内层复选框列表
         riskItemCheckboxAdapter = new RiskItemCheckboxAdapter(context);
@@ -66,6 +69,18 @@ public class RiskGroupAdapter extends RecyclerView.Adapter<RiskGroupAdapter.View
         holder.rv_question_check.setAdapter(riskItemCheckboxAdapter);
         // 设置内层item数据
         riskItemCheckboxAdapter.setSublistBeans(wenjuanBean.getSublist());
+        // 接收内层数据同步
+        riskItemCheckboxAdapter.setSetValueUpdate(new RiskItemCheckboxAdapter.SetValueUpdate() {
+            @Override
+            public void onSetValueUpdate(List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean.SublistBean> sublistBeans) {
+                for (RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean bean : wenjuanBeans) {
+                    List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean.SublistBean> sublist = bean.getSublist();
+                    sublist = sublistBeans;
+                }
+                setGroupValueUpdate.onSetGroupValueUpdate(wenjuanBeans);
+            }
+        });
+
         // 接收内层算分回调
         riskItemCheckboxAdapter.setSetGradeListener(new RiskItemCheckboxAdapter.SetGradeListener() {
             @Override
@@ -106,5 +121,14 @@ public class RiskGroupAdapter extends RecyclerView.Adapter<RiskGroupAdapter.View
         this.setGroupGradeListener = setGroupGradeListener;
     }
 
+    // 数据同步回调
+    private SetGroupValueUpdate setGroupValueUpdate;
 
+    public interface SetGroupValueUpdate {
+        void onSetGroupValueUpdate(List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean> wenjuanBeans);
+    }
+
+    public void setSetGroupValueUpdate(SetGroupValueUpdate setGroupValueUpdate) {
+        this.setGroupValueUpdate = setGroupValueUpdate;
+    }
 }

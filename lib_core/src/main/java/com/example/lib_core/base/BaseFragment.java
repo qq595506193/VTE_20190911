@@ -37,6 +37,13 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
+    /**
+     * 设置Fragment要显示的布局
+     *
+     * @return 布局的layoutId
+     */
+    protected abstract int setContentView();
+
     protected abstract void initView();
 
     /**
@@ -91,12 +98,6 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-    /**
-     * 设置Fragment要显示的布局
-     *
-     * @return 布局的layoutId
-     */
-    protected abstract int setContentView();
 
     /**
      * 获取设置的布局

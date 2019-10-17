@@ -70,10 +70,8 @@ public class RiskItemCheckboxAdapter extends RecyclerView.Adapter<RiskItemCheckb
     @Override
     public void onBindViewHolder(@NonNull final RiskItemCheckboxAdapter.ViewHolder holder, final int position) {
         final RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean.SublistBean sublistBean = sublistBeans.get(position);
-
-
         holder.ck_checked.setText(sublistBean.getRISK_FACTOR_NAME());
-
+        holder.ck_checked.setChecked(sublistBean.isChecked());
         // 默认勾选y
         if (sublistBean.getIsslect().equals("1")) {
             holder.iv_wenhao.setVisibility(View.VISIBLE);
@@ -89,6 +87,7 @@ public class RiskItemCheckboxAdapter extends RecyclerView.Adapter<RiskItemCheckb
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     sublistBean.setChecked(true);
+                    setValueUpdate.onSetValueUpdate(sublistBeans);// 数据同步
                     setGradeListener.onGradeListener(true, sublistBean);
                     if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
                         holder.et_shuru.setVisibility(View.VISIBLE);
@@ -98,6 +97,7 @@ public class RiskItemCheckboxAdapter extends RecyclerView.Adapter<RiskItemCheckb
                     }
                 } else {
                     sublistBean.setChecked(false);
+                    setValueUpdate.onSetValueUpdate(sublistBeans);// 数据同步
                     setGradeListener.onGradeListener(false, sublistBean);
                     if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
                         holder.et_shuru.setVisibility(View.INVISIBLE);
@@ -127,28 +127,28 @@ public class RiskItemCheckboxAdapter extends RecyclerView.Adapter<RiskItemCheckb
         });
 
 
-//        holder.ck_checked.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                // 算分回调+题ID
-//                setGradeListener.onGradeListener(holder.ck_checked.isChecked(), sublistBean);
-//                // 判断选中了其他，显示输入框
-//                if (holder.ck_checked.isChecked()) {
-//                    if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
-//                        holder.et_shuru.setVisibility(View.VISIBLE);
-//                        String trim = holder.et_shuru.getText().toString().trim();
-//                    }
-//                } else {
-//                    //setCheckItem.onSetCheckItem(isChecked, position, sublistBean);
-//                    if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
-//                        holder.et_shuru.setVisibility(View.GONE);
-//                    }
-//                }
-//            }
-//        });
-        // 判断提交后置为不能选择
+        holder.ck_checked.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                // 算分回调+题ID
+                setGradeListener.onGradeListener(holder.ck_checked.isChecked(), sublistBean);
+                // 判断选中了其他，显示输入框
+                if (holder.ck_checked.isChecked()) {
+                    if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
+                        holder.et_shuru.setVisibility(View.VISIBLE);
+                        String trim = holder.et_shuru.getText().toString().trim();
+                    }
+                } else {
+                    //setCheckItem.onSetCheckItem(isChecked, position, sublistBean);
+                    if (sublistBean.getSCORE_SHOW_TYPE() == 30) {
+                        holder.et_shuru.setVisibility(View.GONE);
+                    }
+                }
+            }
+        });
+
+        //判断提交后置为不能选择
         if (isCommit) {
             holder.ck_checked.setEnabled(false);
         } else {
@@ -221,4 +221,14 @@ public class RiskItemCheckboxAdapter extends RecyclerView.Adapter<RiskItemCheckb
         this.setGradeListener = setGradeListener;
     }
 
+    // 数据同步回调
+    private SetValueUpdate setValueUpdate;
+
+    public interface SetValueUpdate {
+        void onSetValueUpdate(List<RiskAssessmentBean.ServerParamsBean.WENJUANNAMEBean.XUANXIANGBean.WENJUANBean.SublistBean> sublistBeans);
+    }
+
+    public void setSetValueUpdate(SetValueUpdate setValueUpdate) {
+        this.setValueUpdate = setValueUpdate;
+    }
 }

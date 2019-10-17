@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.tidus.ristrat.R;
@@ -74,12 +75,18 @@ public class TablesAdapter extends RecyclerView.Adapter<TablesAdapter.ViewHolder
 //            }
         }
 
-
+        holder.ck_tables.setChecked(listformsBean.isSelect());
         holder.ck_tables.setText(listformsBean.getFORM_NAME());
-        holder.ck_tables.setOnClickListener(new View.OnClickListener() {
+        holder.ck_tables.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                setCheckboxFormId.onCheckboxFormId(holder.ck_tables.isChecked(), listformsBean.getFORM_ID());
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    listformsBean.setSelect(true);
+                    setCheckboxFormId.onCheckboxFormId(isChecked, listformsBean.getFORM_ID());
+                }else {
+                    listformsBean.setSelect(false);
+                    setCheckboxFormId.onCheckboxFormId(isChecked, listformsBean.getFORM_ID());
+                }
             }
         });
     }

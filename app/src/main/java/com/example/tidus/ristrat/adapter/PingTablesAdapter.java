@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.tidus.ristrat.R;
@@ -49,6 +50,7 @@ public class PingTablesAdapter extends RecyclerView.Adapter<PingTablesAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull final PingTablesAdapter.ViewHolder holder, int position) {
         final SelectedTablesBean.ServerParamsBean.BusinesslistBean.ListformsBean listformsBean = listforms.get(position);
+        holder.ck_tables.setChecked(listformsBean.isSelected());
         holder.ck_tables.setText(listformsBean.getFORM_NAME());
         if (checkRiskBean != null) {
             for (CheckRiskBean.ServerParamsBean server_param : checkRiskBean.getServer_params()) {
@@ -67,10 +69,16 @@ public class PingTablesAdapter extends RecyclerView.Adapter<PingTablesAdapter.Vi
                 }
             }
         }
-        holder.ck_tables.setOnClickListener(new View.OnClickListener() {
+        holder.ck_tables.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                setCheckboxFormId.onCheckboxFormId(holder.ck_tables.isChecked(), listformsBean.getFORM_ID());
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    listformsBean.setSelected(true);
+                    setCheckboxFormId.onCheckboxFormId(isChecked, listformsBean.getFORM_ID());
+                } else {
+                    listformsBean.setSelected(false);
+                    setCheckboxFormId.onCheckboxFormId(isChecked, listformsBean.getFORM_ID());
+                }
             }
         });
     }

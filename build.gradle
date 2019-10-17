@@ -7,6 +7,7 @@ buildscript {
         jcenter()
         maven { url "https://jitpack.io" }
         mavenCentral()
+        //2019.10.17 常浩修改一次
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
